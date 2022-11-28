@@ -3,14 +3,16 @@
     margin: 0;
     color: rgb(239, 238, 235);
     font-size: 20px;
+    font-family: sans-serif;
 }
 body{
     background-color: rgb(191, 201, 210);
+
 }
 
 nav{
     display: flex;
-    padding: 20px;
+    /* padding: 20px; */
     background-color: rgb(12, 4, 62);
     justify-content: space-between;
    
@@ -36,17 +38,81 @@ nav{
 .nav-right ul{
     display: flex;
     flex: 1;
+    justify-content: center;
+    align-items: center;
    
     /* background-color: beige; */
     justify-content: space-evenly;
     
 }
+select{
+    padding: 10px;
+    background-color:green;
+    border-radius: 10px;
+    margin-left: 5%;
+   
+}
+li:hover{
+    background-color: orange;
+    margin: 0;
+    padding: 10px;
+}
+.choose_selleror_customer select:hover{
+    background-color: orange;
+    /* padding: 10px; */
+}
 .choose_selleror_customer{
     display: flex;
     flex:1;
+    justify-content: center;
+    align-items: center;
 }
 li{
     display: inline;
     text-align: center;
    
 }
+main{
+   
+    background-image: url("../img/bg_man.jpg");
+    height: 80vh;
+   
+
+}
+.fine_info{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+
+}
+.search{
+   
+    display: flex;
+    width: 50%;
+   
+}
+.search i{
+    background-color: orange;
+    margin-left: -45px;
+    padding: 10px;
+    border-radius: 0px 10px 10px 0px;
+}
+.search input{
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    color:black;
+  
+ 
+
+}
+/* .producte{
+    background-color: orange;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 2%;
+} */
+
