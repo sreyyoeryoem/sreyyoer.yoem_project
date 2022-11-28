@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: rgb(239, 238, 235);
+    font-size: 20px;
+}
+body{
+    background-color: rgb(191, 201, 210);
+}
+
+nav{
+    display: flex;
+    padding: 20px;
+    background-color: rgb(12, 4, 62);
+    justify-content: space-between;
+   
+}
+.profile{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+.profile img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 5%;
+ 
+}
+.nav-right {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    /* background-color: aquamarine; */
+}
+.nav-right ul{
+    display: flex;
+    flex: 1;
+   
+    /* background-color: beige; */
+    justify-content: space-evenly;
+    
+}
+.choose_selleror_customer{
+    display: flex;
+    flex:1;
+}
+li{
+    display: inline;
+    text-align: center;
+   
+}
