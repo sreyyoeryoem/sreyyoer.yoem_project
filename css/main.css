@@ -57,9 +57,9 @@ li:hover{
     margin: 0;
     padding: 10px;
 }
-.choose_selleror_customer select:hover{
+select:hover{
     background-color: orange;
-    /* padding: 10px; */
+
 }
 .choose_selleror_customer{
     display: flex;
