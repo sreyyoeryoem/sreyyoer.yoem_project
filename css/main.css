@@ -7,9 +7,6 @@ body{
     background-color: rgb(241, 244, 247);
     color: white;
     font-size: 20px;
-
-
-
 }
 nav{
     display: flex;
@@ -57,6 +54,9 @@ li:hover{
 select:hover{
     background-color: orange;
 }
+.card:hover{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
 .choose_selleror_customer{
     display: flex;
     flex:1;
@@ -69,6 +69,7 @@ select:hover{
     padding: 10px;
     border-radius:50% ;
 }
+
 li{
     display: inline;
     text-align: center;
@@ -113,23 +114,27 @@ main{
 .container{
   
     display: flex;
-   
-    
-   
 }
 .card{
     background-color:rgb(153, 150, 143);
     margin: 4%;
     border-radius: 10px;
     color: black;
-    /* box-shadow: 2px 2px 2px red; */
+
 
     padding: 10px;
    
 }
+.container button{
+    background-color: orange;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2%;
+}
 .card img{
     width: 300px;
-    height: 300px;
+    height: 250px;
     
 }
 .bg-title{
