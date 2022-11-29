@@ -27,9 +27,10 @@ nav{
  
 }
 .nav-right {
+   
     display: flex;
-    flex: 2;
-    justify-content: space-between;
+    flex: 1;
+    /* justify-content: space-between; */
 }
 .nav-right ul{
     display: flex;
@@ -201,7 +202,12 @@ footer h3{
 }
 
 /* =======================choose seller or customer ================================================= */
+a{
+    text-decoration-line: none;
+    color: whitesmoke;
 
+
+}
 .box{
     display: flex;
     margin-top: 5%;
