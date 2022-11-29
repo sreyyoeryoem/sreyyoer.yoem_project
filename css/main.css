@@ -11,7 +11,6 @@ body{
 }
 nav{
     display: flex;
-    /* padding: 20px; */
     background-color: rgb(12, 4, 62);
     justify-content: space-between;
 }
@@ -38,6 +37,8 @@ nav{
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
+
+    
 }
 select{
     background-color: rgb(12, 4, 62);
@@ -167,10 +168,6 @@ footer{
     padding: 30px;
     font-size: 15px;
     color: white;
-
-   
-
-
 }
 footer h3{
     margin: 2%;
@@ -204,19 +201,31 @@ footer h3{
 }
 
 /* =======================choose seller or customer ================================================= */
+
+.box{
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+}
 .card_container{
     display: flex;
     justify-content: center;
+    align-items: center;
+    
  
   
 }
+
+
 .big_card{
     background-color:rgb(149, 149, 173);
-    display: flex;
+    display: flex; 
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     width: 50%;
+    border-radius: 10px;
 }
 .choose{
     display: flex;
