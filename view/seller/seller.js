@@ -41,7 +41,7 @@ function getProducionfromlocal() {
   if (productsStorage !== null) {
     products = productsStorage;
   }
-  console.log(productsStorage)
+ 
 
 }
 // ------------------------------------hide/show-------------------
@@ -65,7 +65,7 @@ function renderProduct() {
   let displayPorducts = document.createElement("div");
   displayPorducts.className = ("display_product");
   all_broduct.appendChild(displayPorducts);
-
+  console.log(all_broduct)
 
 
   for (let index = 0; index < products.length; index++) {
@@ -76,30 +76,40 @@ function renderProduct() {
     card.className = "card";
     card.dataset.index = index;
     displayPorducts.appendChild(card)
+    let cardContain = document.createElement("div");
+    cardContain.className = ("cardContainer")
+    card.appendChild(cardContain)
+
 
     let imfor_product = document.createElement("div");
     imfor_product.className = ("imfor_prodcut")
-    card.appendChild(imfor_product)
+    cardContain.appendChild(imfor_product)
 
     let deleteEdit = document.createElement("div");
     deleteEdit.className = ("delete_edit");
-    card.appendChild(deleteEdit)
+    cardContain.appendChild(deleteEdit)
 
     let Image = document.createElement("img");
     Image.src = product.imge
 
     imfor_product.appendChild(Image)
 
-    let span_Name = document.createElement("span");
-    span_Name.textContent = "Name: " + product.name
-    imfor_product.appendChild(span_Name)
+    let div_Name = document.createElement("div");
+    div_Name.className = ("div_name")
+    div_Name.textContent = "Name: "
+    imfor_product.appendChild(div_Name)
+    let span_name = document.createElement("span");
+    span_name.textContent = product.name
+    div_Name.appendChild(span_name)
+
+    
 
     let span_Price = document.createElement("span");
     span_Price.textContent = "Price: " + product.price + "$"
     imfor_product.appendChild(span_Price)
     let span_gender = document.createElement("span");
-    span_Price.textContent = "Gender: " + product.gender + "$"
-    imfor_product.appendChild(span_Price)
+    span_gender.textContent = "Gender: " +  product.gender
+    imfor_product.appendChild(span_gender)
 
 
     let edit = document.createElement("h4");
@@ -120,12 +130,8 @@ function renderProduct() {
 
 
 function createOrEditProduct() {
-
   // 1 - Hide the dialog
   hide(formCreata)
-  
- 
-
   if (productToEdit !== null) {
 
     // 2 - Edit the existing kitchen product
@@ -134,7 +140,7 @@ function createOrEditProduct() {
     editProduct.price = inputPrice.value;
     editProduct.gender = gender.value
     editProduct.imge = inputImage.value;
-    console.log()
+    
 
   } else {
 
@@ -143,9 +149,9 @@ function createOrEditProduct() {
     newProduct.name = inputName.value;
     newProduct.price = inputPrice.value;
     newProduct.gender =  document.getElementById("gender").value
-    console.log(newProduct.gender)
+
     newProduct.imge = inputImage.value;
-    console.log(newProduct.gender)
+    
     if(newProduct.name !== "" && parseInt(newProduct.price) >=0 && newProduct.imge !== "" && (newProduct.gender != "")){
         products.push(newProduct)
     }
@@ -176,16 +182,41 @@ function createOrEditProduct() {
 }
 
 
-// function canCreateNew(){
-//   if (inputName.name != "" && parseInt(inputPrice )>0 && inputImage != ""){
-//     createOrEditProduct()
-//     saveProductonlocal()
-//     renderProduct()
-//   }
-//   else{
-//   }
-// }
-//
+
+
+function searchProduct(){
+    let  searchText = searchBookInput.value;
+    searchText.toLocaleLowerCase;
+    let textName = document.querySelectorAll(".div_name");
+    
+    // console.log(textName)
+    for ( let valuse of textName){
+      console.log(valuse)
+      let boxtitle = valuse.lastElementChild.textContent.toLowerCase();
+      console.log(boxtitle)
+      if (boxtitle.indexOf(searchText)=== -1){
+        valuse.closest('.card').style.display = "none";
+    
+      }
+      else{
+        valuse.closest('.card').style.display= "block";
+      }
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
 // Open the dilaog to CREATE a new product
 //
 function openDialogToCreate() {
@@ -246,9 +277,17 @@ function removeProduct(event) {
 
 }
 // call====================================
+
+let searchBookInput = document
+  .getElementById("search-books")
+  .querySelector("input");
+  console.log(searchBookInput)
+searchBookInput.addEventListener("keyup", searchProduct);
+
 getProducionfromlocal()
 // saveProductonlocal()
 
 renderProduct()
 // saveProductonlocal()
+// searchProduct()
 

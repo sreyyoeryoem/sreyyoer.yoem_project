@@ -77,8 +77,8 @@ li{
 }
 main{
    
-    background-image: url("../img/bg_man.jpg");
-    height: 70vh;
+    /* background-image: url("../img/bg_man.jpg"); */
+    /* height: 70vh; */
    
 
 }
@@ -202,13 +202,21 @@ input{
     margin: 10px;
 }
 
-
-.delete_edit h4{
+.delete_edit{
+    background-color: aqua;
+}
+/* .delete_edit h4{
    margin: 10px;
    padding: 6px;
    border-radius: 10px;
    background-color: orange;
 
+} */
+.cardContainer{
+    display: flex;
+    justify-content: space-between;
+    background-color: beige;
+    width: 100%;
 }
 .display_product .card{
     display: flex;

@@ -3,29 +3,9 @@ let containProduct = document.querySelector(".display_product");
 // console.log(containProduct)
 
 // ===========================================
-let products = [
-    // {
-    //   name: "Pot",
-    //   price: "20$",
-    //   imge: "",
-      
-    // },
-    // {
-    //     name: "Plate",
-    //     price: "10$",
-    //     imge: "",
-    // },
-    // {
-    //     name: "spoon",
-    //     price: "10$",
-    //     imge: "",
-    // },
-    // {
-    //     name: "spoon",
-    //     price: "10$",
-    //     imge: "",
-    // },
-  ];
+// let products = [
+    
+//   ];
   // productsStorage = null
 
   // function saveProductonlocal() {
@@ -90,6 +70,11 @@ function renderProducts(){
         priceProduct.textContent = "Price: "+ product.price + "$"
         imformation.appendChild(priceProduct)
 
+        let gender = document.createElement("div");
+        gender.setAttribute("id","gender")
+        gender.textContent = "Gender: "+ product.gender 
+        imformation.appendChild(gender)
+
 
 
         let grup_bnt = document.createElement("div")
@@ -118,6 +103,13 @@ function renderProducts(){
 
 
 }
+
+
+let searchBookInput = document
+  .getElementById("search-books")
+  .querySelector("input");
+  console.log(searchBookInput)
+searchBookInput.addEventListener("keyup", searchProduct);
 
 // loadQuestions()
 
