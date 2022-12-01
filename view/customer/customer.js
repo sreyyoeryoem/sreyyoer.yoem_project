@@ -4,69 +4,77 @@ let containProduct = document.querySelector(".display_product");
 
 // ===========================================
 let products = [
-    {
-      name: "Pot",
-      price: "20$",
-      imge: "",
+    // {
+    //   name: "Pot",
+    //   price: "20$",
+    //   imge: "",
       
-    },
-    {
-        name: "Plate",
-        price: "10$",
-        imge: "",
-    },
-    {
-        name: "spoon",
-        price: "10$",
-        imge: "",
-    },
-    {
-        name: "spoon",
-        price: "10$",
-        imge: "",
-    },
+    // },
+    // {
+    //     name: "Plate",
+    //     price: "10$",
+    //     imge: "",
+    // },
+    // {
+    //     name: "spoon",
+    //     price: "10$",
+    //     imge: "",
+    // },
+    // {
+    //     name: "spoon",
+    //     price: "10$",
+    //     imge: "",
+    // },
   ];
-  productsStorage = null
+  // productsStorage = null
 
-  function saveProductonlocal() {
-    localStorage.setItem("products", JSON.stringify(products));
+  // function saveProductonlocal() {
+  //   localStorage.setItem("products", JSON.stringify(products));
   
       
-  }
+  // }
     
   function getProducionfromlocal() {
-   
+
     let productsStorage = JSON.parse(localStorage.getItem("products"));
     if (productsStorage !== null) {
       products = productsStorage;
+    
+    
     }
   }
+  
+
 function renderProducts(){
-    let displayProduct = document.querySelector(".all_cards")
-    displayProduct.remove()
-    let displayProducts = document.createElement("div");
-    displayProducts.className = ("all_cards");
-    containProduct.appendChild(displayProducts)
-    console.log(displayProducts)
+
+  let productsStorage = JSON.parse(localStorage.getItem("products"));
+    if (productsStorage !== null) {
+      products = productsStorage;
+      console.log(products)
+    }
     
-    console.log(displayProducts)
-    console.log(products.length)
+  let displayProduct = document.querySelector(".all_cards")
+  displayProduct.remove()
+  let displayProducts = document.createElement("div");
+  displayProducts.className = ("all_cards");
+  containProduct.appendChild(displayProducts)
+  console.log(containProduct)
 
 
-    for (let index = 0; index < products.length; index++){
-        console.log()
-        objProduct = products[index]
-        console.log(objProduct.name)
-       
+    for (let product of products){
+      console.log(product)
+      
         let card = document.createElement("div");
+        console.log(card)
         card.className = ("card")
-        card.dataset.index = index;
+        // card.dataset.index = index;
         displayProducts.appendChild(card)
 
         let image = document.createElement("img");
-
-        image.src ="../../img/pol5.jpg"
+        console.log(image)
+        image.src = product.imge
         card.appendChild(image)
+        console.log(image)
 
         let imformation = document.createElement("div");
         imformation.className = ("imformation")
@@ -74,12 +82,12 @@ function renderProducts(){
 
         let nameProduct = document.createElement("div");
         nameProduct.setAttribute("id","name")
-        nameProduct.textContent = objProduct.name
+        nameProduct.textContent = "Name: "+ product.name
         imformation.appendChild(nameProduct)
 
         let priceProduct = document.createElement("div");
         priceProduct.setAttribute("id","price")
-        priceProduct.textContent = objProduct.price
+        priceProduct.textContent = "Price: "+ product.price
         imformation.appendChild(priceProduct)
         let bntBuy = document.createElement("button");
         bntBuy.setAttribute("id","bntBuy");
@@ -93,5 +101,9 @@ function renderProducts(){
 }
 
 // loadQuestions()
-saveProduct()
+
+// renderProducts()
+// p = document.createElement("div")
+// console.log(p)
+getProducionfromlocal()
 renderProducts()

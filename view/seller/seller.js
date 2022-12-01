@@ -47,6 +47,7 @@ function getProducionfromlocal() {
   if (productsStorage !== null) {
     products = productsStorage;
   }
+  console.log(productsStorage)
 }
 // ------------------------------------hide/show-------------------
 function show(element){
@@ -118,7 +119,7 @@ function renderProduct() {
 // ======================================================createNewProduct==================================
 function createNewProduct(){
   hide(formCreata)
-  document.getElementById("btnCreate").textContent = "EDIT";
+  document.getElementById("btnCreate").textContent = "Create";
   
  
 
