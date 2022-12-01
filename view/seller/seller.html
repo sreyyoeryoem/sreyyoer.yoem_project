@@ -5,48 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>create product</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
     <nav>
         <div class="profile">
-            <img src="../../../img/logo.png" alt="">
+            <img src="../../img/logo.png" alt="">
         </div>
         <div class="nav-right">
             <ul>
-                <li><a href=",../../../../../index.html">Home</a></li>
-                <li>Contact</li>
-                <li>
-                    <select name="Producte" id="">
-                        <option value="producte">Producte</option>
-                        <option value="pot">Pot</option>
-                        <option value="Spoon">Spoon</option>
-                        <option value="plate">Plat</option>
-                        <option value="stove">Stove</option>
-                        <option value="">Pot</option>
-
-                    </select>
-                </li>
-                
+                <li>Customer</li>
+                <li>Seller</li>
             </ul>
-            <div class="choose_selleror_customer">
-                <div class="icon"> 
-                    <i class="material-icons">people</i>
-                </div>
-            </div>
         </div>
            
     </nav>
-    <div class="create">
-        <div class="btn_display">
-            <button id="display_product">
-                Display produte
-            </button>
-        </div>
-        <form action="name">
-        <h2>Create product</h2>
+    
+    
+    <div class="create" style ="display: none">
+        
+        <dialog open>
+            
+            <h2>Create product</h2>
             
             <div class="name">
                 <label for="Name">Name</label>
@@ -56,26 +38,31 @@
                 <label for="price">Price</label>
                 <input type="text" id="price_product">
             </div>
-            <div class="description">
-                <label for="description">Discription</label>
-                <input type="text" id="description_product">
-            </div>
-            <div class="currency">
-                <label for="currency">Crrency</label>
-                <input type="text" id="currency">
-            </div>
             <div class="image_product">
                 <label for="image">Chooce image</label>
-                <input type="file" id="image_product">
+                <input type="text" id="image_product">
             </div>
             <div class="btn_create">
-                <button id="create">Create</button>
+                <button id="btnCreate"onclick = "createNewProduct()">Create</button>
+                <button id="cancel" onclick="onCancel()">Cancel</button>
             </div>
+            
 
-        </form>
+    
+        </dialog>
+
+        
+        
+        
     </div>
-    <div class="display_product">
-
+    <div class="all_product">
+        <h2>All prodcut</h2>
+        <button id="create" onclick="openDialog()">Create</button>
+        <div class="display_product">
+           
+           
+        </div>
+        
     </div>
     <footer>
         <div class="footer-left">
@@ -106,5 +93,5 @@
     
     
 </body>
-<script src="../create_product/js/create.js"></script>
+<script src="seller.js"></script>
 </html>

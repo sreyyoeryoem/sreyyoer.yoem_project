@@ -5,7 +5,7 @@
     font-family: sans-serif;
 }
 body{
-    background-color: rgb(241, 244, 247);
+    /* background-color: rgb(241, 244, 247); */
     color: white;
     font-size: 20px;
 }
@@ -30,7 +30,7 @@ nav{
    
     display: flex;
     flex: 1;
-    /* justify-content: space-between; */
+    
 }
 .nav-right ul{
     display: flex;
@@ -67,11 +67,7 @@ select:hover{
     align-items: center;
     padding: 10px;
 }
-.icon{
-    background-color: orange;
-    padding: 10px;
-    border-radius:50% ;
-}
+
 
 li{
     display: inline;
@@ -82,7 +78,7 @@ li{
 main{
    
     background-image: url("../img/bg_man.jpg");
-    height: 80vh;
+    height: 70vh;
    
 
 }
@@ -114,7 +110,44 @@ main{
     border: none;
     color:black;
 }
-.container{
+.display_product{
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.all_cards{
+    background-color: aqua;
+    display: flex;
+    width: 100%;
+/*  
+    justify-content: space-evenly; */
+}
+.card{
+    color: black;
+    background-color: bisque;
+    padding: 20px;
+    margin: 3%;
+    border-radius: 5px;
+
+}
+.card img{
+    width: 200px;
+    height: 200px;
+    
+
+}
+#bntBuy{
+    padding: 7px;
+    background-color: orange;
+    border-radius: 5px;
+    border: none;
+}
+
+/* .container{
   
     display: flex;
 }
@@ -159,7 +192,7 @@ main{
 }
 .title p{
     font-size: 30px;
-}
+} */
 footer{
     display: flex;
     color: black;
@@ -201,62 +234,92 @@ footer h3{
     border-radius: 50%;
 }
 
-/* =======================choose seller or customer ================================================= */
+/* =======================create product ================================================= */
 a{
     text-decoration-line: none;
     color: whitesmoke;
 
 
 }
-.box{
-    display: flex;
-    margin-top: 5%;
-    justify-content: center;
-    align-items: center;
-}
-.card_container{
+.create{
     display: flex;
     justify-content: center;
-    align-items: center;
-    
- 
   
+
 }
-
-
-.big_card{
-    background-color:rgb(149, 149, 173);
-    display: flex; 
+form{
+    display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    width: 50%;
-    border-radius: 10px;
-}
-.choose{
-    display: flex;
-    padding: 20px;
-}
-.big_card h2{
-    margin-top: 3%;
-}
-#card-seller img,#card-customer img{
-    width: 200px;
-    height: 200px;
-    border-radius: 60%;
-
-}
-#card-seller,#card-customer{
-    background-color:white;
-    margin: 5%;
-    border-radius: 10px;
-
-}
-.people {
+    flex: 1;
     color: black;
-    background-color: rgb(241, 148, 81);
+    background-color: aquamarine;
+    padding: 20px;
+    margin: 5%;
+    border-radius: 5px;
+    
+
+
+}
+
+dialog{
+    width: 50%;
+    margin: 10% 0 10% 25%;
     padding: 10px;
+    height: 50%;
+}
+input{
+    padding: 10px;
+    width: 90%;
+
+}
+.name,.price{
+    margin: 10px;
+}
+
+
+.delete_edit img{
+    width: 40px;
+    height: 40px;
+
+}
+.display_product .card{
     display: flex;
-    justify-content: center;
-    border-radius: 0 0px 10px 10px;
+    justify-content: space-between;
+    width: 70%;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(234, 227, 235, 0.733);
+}
+.imfor_prodcut{
+    display: flex;
+    justify-content: space-between;
+    flex: 2;
+}
+.delete_edit{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+#create{
+    padding: 8px;
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    width: 80px;
+    margin-left: 1150px;
+}
+#btnCreate,#cancel{
+    padding: 8px;
+    border: none;
+    width: 90px;
+    border-radius: 5px;
+    margin: 15px;
+    
+}
+#btnCreate{
+    background-color: green;
+}
+#cancel{
+    background-color: orange;
 }
