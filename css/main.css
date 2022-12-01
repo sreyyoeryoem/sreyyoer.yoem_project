@@ -190,8 +190,8 @@ form{
 dialog{
     width: 50%;
     margin: 10% 0 10% 25%;
-    padding: 10px;
-    height: 50%;
+    padding: 30px;
+    height: 70%;
 }
 input{
     padding: 10px;
@@ -234,6 +234,10 @@ input{
     justify-content: flex-end;
     cursor: pointer;
 }
+#gender{
+    width: 100px;
+    margin: 10px;
+}
 #create{
     padding: 8px;
     background-color: green;
@@ -249,7 +253,7 @@ input{
     border: none;
     width: 90px;
     border-radius: 5px;
-    margin: 15px;
+    margin:50px;
     
 }
 #btnCreate{

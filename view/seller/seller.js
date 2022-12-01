@@ -1,6 +1,22 @@
 const formCreata = document.querySelector(".create");
 let table_Data = document.querySelector(".display_product");
 let all_broduct = document.querySelector(".all_product");
+let inputName = document.getElementById("name_product");
+let inputPrice = document.getElementById("price_product");
+let inputImage = document.getElementById("image_product");
+let gender = document.getElementById("gender");
+
+// for(let values of gender ){
+//   if (values.selected){
+//     let genderSelecte = values
+//     console.log(genderSelecte)
+//   }
+//   // console.log(value)
+
+// console.log(gender)
+
+
+
 
 
 
@@ -26,6 +42,7 @@ function getProducionfromlocal() {
     products = productsStorage;
   }
   console.log(productsStorage)
+
 }
 // ------------------------------------hide/show-------------------
 function show(element) {
@@ -80,6 +97,9 @@ function renderProduct() {
     let span_Price = document.createElement("span");
     span_Price.textContent = "Price: " + product.price + "$"
     imfor_product.appendChild(span_Price)
+    let span_gender = document.createElement("span");
+    span_Price.textContent = "Gender: " + product.gender + "$"
+    imfor_product.appendChild(span_Price)
 
 
     let edit = document.createElement("h4");
@@ -103,24 +123,49 @@ function createOrEditProduct() {
 
   // 1 - Hide the dialog
   hide(formCreata)
+  
  
 
   if (productToEdit !== null) {
 
     // 2 - Edit the existing kitchen product
     let editProduct = products[productToEdit];
-    editProduct.name = document.getElementById("name_product").value;
-    editProduct.price = document.getElementById("price_product").value;
-    editProduct.imge = document.getElementById("image_product").value;
+    editProduct.name = inputName.value;
+    editProduct.price = inputPrice.value;
+    editProduct.gender = gender.value
+    editProduct.imge = inputImage.value;
+    console.log()
 
   } else {
 
     // 2 - Create a  new  kitchen product
     let newProduct = {};
-    newProduct.name = document.getElementById("name_product").value;
-    newProduct.price = document.getElementById("price_product").value;
-    newProduct.imge = document.getElementById("image_product").value;
-    products.push(newProduct)
+    newProduct.name = inputName.value;
+    newProduct.price = inputPrice.value;
+    newProduct.gender =  document.getElementById("gender").value
+    console.log(newProduct.gender)
+    newProduct.imge = inputImage.value;
+    console.log(newProduct.gender)
+    if(newProduct.name !== "" && parseInt(newProduct.price) >=0 && newProduct.imge !== "" && (newProduct.gender != "")){
+        products.push(newProduct)
+    }
+    else{
+
+      if (inputName.value == ""){
+        inputName.style.boder = "red"
+      }
+      if (inputPrice.value == ""){
+        inputPrice.style.border = "red"
+      }
+      if (inputImage.value == ""){
+        inputImage.style.border = "red"
+      
+
+      }
+
+        
+        
+    }
   }
 
   // 3 - Save the list of products to local storage
@@ -130,6 +175,16 @@ function createOrEditProduct() {
   renderProduct()
 }
 
+
+// function canCreateNew(){
+//   if (inputName.name != "" && parseInt(inputPrice )>0 && inputImage != ""){
+//     createOrEditProduct()
+//     saveProductonlocal()
+//     renderProduct()
+//   }
+//   else{
+//   }
+// }
 //
 // Open the dilaog to CREATE a new product
 //
@@ -157,10 +212,10 @@ function openDialogToEdit(event) {
 
   // 3 - update the dialog with question informatin
   let product = products[productToEdit];
-  document.getElementById("name_product").value = product.name
+  inputName.value = product.name
   console.log(product.name)
-  document.getElementById("price_product").value = product.price
-  document.getElementById("image_product").value = product.imge
+  inputPrice.value = product.price
+  inputImage.value = product.imge
   
   // 4  - Show the dialog
   show(formCreata);
