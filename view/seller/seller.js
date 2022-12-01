@@ -185,35 +185,23 @@ function createOrEditProduct() {
 
 
 function searchProduct(){
-    let  searchText = searchBookInput.value;
-    searchText.toLocaleLowerCase;
-    let textName = document.querySelectorAll(".div_name");
-    
-    // console.log(textName)
-    for ( let valuse of textName){
-      console.log(valuse)
-      let boxtitle = valuse.lastElementChild.textContent.toLowerCase();
-      console.log(boxtitle)
-      if (boxtitle.indexOf(searchText)=== -1){
-        valuse.closest('.card').style.display = "none";
-    
-      }
-      else{
-        valuse.closest('.card').style.display= "block";
-      }
+  let  searchProduct = searchBookInput.value;
+  searchProduct.toLocaleLowerCase;
+  let nameProducts = document.querySelectorAll(".div_name");
 
+
+  for ( let valuse of nameProducts){
+    console.log(valuse)
+    let name_product = valuse.lastElementChild.textContent.toLowerCase();
+    // console.log(boxtitle)
+    if (name_product.indexOf(searchProduct)=== -1){
+      valuse.closest('.card').style.display = "none";
     }
-
-
-
+    else{
+      valuse.closest('.card').style.display= "block";
+    }
+  }
 }
-
-
-
-
-
-
-
 
 
 

@@ -5,14 +5,14 @@ let containProduct = document.querySelector(".display_product");
 // ===========================================
 // let products = [
     
-//   ];
-  // productsStorage = null
+// //   ];
+//   // productsStorage = null
 
-  // function saveProductonlocal() {
-  //   localStorage.setItem("products", JSON.stringify(products));
+//   // function saveProductonlocal() {
+//   //   localStorage.setItem("products", JSON.stringify(products));
   
-      
-  // }
+// ]
+  
     
   function getProducionfromlocal() {
 
@@ -30,7 +30,7 @@ function renderProducts(){
   let productsStorage = JSON.parse(localStorage.getItem("products"));
     if (productsStorage !== null) {
       products = productsStorage;
-      console.log(products)
+
     }
     
   let displayProduct = document.querySelector(".all_cards")
@@ -38,20 +38,19 @@ function renderProducts(){
   let displayProducts = document.createElement("div");
   displayProducts.className = ("all_cards");
   containProduct.appendChild(displayProducts)
-  console.log(containProduct)
 
 
-    for (let product of products){
-      console.log(product)
-      
+
+    for (let index in  products){
+      product = products[index]
+
         let card = document.createElement("div");
-        console.log(card)
         card.className = ("card")
-        // card.dataset.index = index;
+        card.dataset.index = index;
         displayProducts.appendChild(card)
 
         let image = document.createElement("img");
-        console.log(image)
+       
         image.src = product.imge
         card.appendChild(image)
      
@@ -61,10 +60,12 @@ function renderProducts(){
         card.appendChild(imformation)
 
         let nameProduct = document.createElement("div");
-        nameProduct.setAttribute("id","name")
-        nameProduct.textContent = "Name: "+ product.name 
+        nameProduct.className = ("div_name")
+        nameProduct.textContent = "Name: "
         imformation.appendChild(nameProduct)
-
+        let spanName = document.createElement("span");
+        spanName.textContent = product.name
+        nameProduct.appendChild(spanName )
         let priceProduct = document.createElement("div");
         priceProduct.setAttribute("id","price")
         priceProduct.textContent = "Price: "+ product.price + "$"
@@ -74,8 +75,6 @@ function renderProducts(){
         gender.setAttribute("id","gender")
         gender.textContent = "Gender: "+ product.gender 
         imformation.appendChild(gender)
-
-
 
         let grup_bnt = document.createElement("div")
         grup_bnt.className= ("grup_bnt");
@@ -99,16 +98,33 @@ function renderProducts(){
 
         
     }
-    
-
-
 }
+///reseach product-------------
 
+function searchProduct(){
+  let  searchProduct = searchBookInput.value;
+  searchProduct.toLocaleLowerCase;
+  let nameProducts = document.querySelectorAll(".div_name");
+
+
+  for ( let valuse of nameProducts){
+    console.log(valuse)
+    let name_product = valuse.lastElementChild.textContent.toLowerCase();
+    // console.log(boxtitle)
+    if (name_product.indexOf(searchProduct)=== -1){
+      valuse.closest('.card').style.display = "none";
+    }
+    else{
+      valuse.closest('.card').style.display= "block";
+    }
+  }
+  
+}
 
 let searchBookInput = document
   .getElementById("search-books")
   .querySelector("input");
-  console.log(searchBookInput)
+  // console.log(searchBookInput)
 searchBookInput.addEventListener("keyup", searchProduct);
 
 // loadQuestions()
@@ -118,3 +134,4 @@ searchBookInput.addEventListener("keyup", searchProduct);
 // console.log(p)
 getProducionfromlocal()
 renderProducts()
+searchProduct()
