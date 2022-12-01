@@ -16,8 +16,8 @@
         </div>
         <div class="nav-right">
             <ul>
-                <li>Customer</li>
-                <li>Seller</li>
+                <li><a href="../customer/customer.html">Customer</a> </li>
+                <li><a href="seller.html">Seller</a> </li>
             </ul>
         </div>
            
@@ -43,7 +43,7 @@
                 <input type="text" id="image_product">
             </div>
             <div class="btn_create">
-                <button id="btnCreate"onclick = "createNewProduct()">Create</button>
+                <button id="btnCreate"onclick = "createOrEditProduct()">Create</button>
                 <button id="cancel" onclick="onCancel()">Cancel</button>
             </div>
             
@@ -57,7 +57,7 @@
     </div>
     <div class="all_product">
         <h2>All prodcut</h2>
-        <button id="create" onclick="openDialog()">Create</button>
+        <button id="create" onclick="openDialogToCreate()">Create</button>
         <div class="display_product">
            
            

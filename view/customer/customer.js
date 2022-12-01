@@ -74,7 +74,7 @@ function renderProducts(){
         console.log(image)
         image.src = product.imge
         card.appendChild(image)
-        console.log(image)
+     
 
         let imformation = document.createElement("div");
         imformation.className = ("imformation")
@@ -82,17 +82,36 @@ function renderProducts(){
 
         let nameProduct = document.createElement("div");
         nameProduct.setAttribute("id","name")
-        nameProduct.textContent = "Name: "+ product.name
+        nameProduct.textContent = "Name: "+ product.name 
         imformation.appendChild(nameProduct)
 
         let priceProduct = document.createElement("div");
         priceProduct.setAttribute("id","price")
-        priceProduct.textContent = "Price: "+ product.price
+        priceProduct.textContent = "Price: "+ product.price + "$"
         imformation.appendChild(priceProduct)
+
+
+
+        let grup_bnt = document.createElement("div")
+        grup_bnt.className= ("grup_bnt");
+        card.appendChild(grup_bnt);
+        
+        let stars = document.createElement('div');
+        stars.className = ('stars');
+        let i = document.createElement('i');
+        i.className = 'fas fa-star';
+        stars.appendChild(i);
+        card.appendChild(stars)
+
         let bntBuy = document.createElement("button");
         bntBuy.setAttribute("id","bntBuy");
         bntBuy.textContent = "Buy now"
-        imformation.appendChild(bntBuy)
+        let bntDetail = document.createElement("button");
+        bntDetail.setAttribute("id","bntDetail");
+        bntDetail.textContent = "More detail"
+        grup_bnt.appendChild(bntBuy)
+        grup_bnt.appendChild(bntDetail)
+
         
     }
     

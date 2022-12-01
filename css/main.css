@@ -37,7 +37,7 @@ nav{
     flex: 1;
     justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
+    cursor: pointer;
 
     
 }
@@ -52,7 +52,7 @@ select{
 li:hover{
     background-color: orange;
     margin: 0;
-    padding: 10px;
+   
 }
 select:hover{
     background-color: orange;
@@ -203,9 +203,11 @@ input{
 }
 
 
-.delete_edit img{
-    width: 40px;
-    height: 40px;
+.delete_edit h4{
+   margin: 10px;
+   padding: 6px;
+   border-radius: 10px;
+   background-color: orange;
 
 }
 .display_product .card{
@@ -221,10 +223,16 @@ input{
     justify-content: space-between;
     flex: 2;
 }
+.imfor_product img{
+    width: 40px;
+}
 .delete_edit{
     display: flex;
+    width: 20px;
+    height: 60px;
     flex: 1;
     justify-content: flex-end;
+    cursor: pointer;
 }
 #create{
     padding: 8px;
@@ -234,6 +242,7 @@ input{
     color: white;
     width: 80px;
     margin-left: 1150px;
+    cursor: pointer;
 }
 #btnCreate,#cancel{
     padding: 8px;
@@ -245,9 +254,11 @@ input{
 }
 #btnCreate{
     background-color: green;
+    cursor: pointer;
 }
 #cancel{
     background-color: orange;
+    cursor: pointer;
 }
 /* ====================================================customer============================== */
 .all_cards .card{
@@ -257,6 +268,8 @@ input{
     border-radius: 5px;
     padding: 20px;
     width: 250px;
+    justify-content: center;
+    align-items: center;
 
 }
 .card .imformation{
@@ -269,6 +282,8 @@ input{
     display: flex;
     flex-wrap: wrap;
     margin-top: 5%;
+    
+    
 
 }
 .all_cards{
