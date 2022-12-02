@@ -4,26 +4,7 @@ let all_broduct = document.querySelector(".all_product");
 let inputName = document.getElementById("name_product");
 let inputPrice = document.getElementById("price_product");
 let inputImage = document.getElementById("image_product");
-let gender = document.getElementById("gender");
-
-// for(let values of gender ){
-//   if (values.selected){
-//     let genderSelecte = values
-//     console.log(genderSelecte)
-//   }
-//   // console.log(value)
-
-// console.log(gender)
-
-
-
-
-
-
-
-let products = [];
-
-
+let gender = document.getElementById("gender")
 
 let productToEdit = null
 
@@ -112,15 +93,19 @@ function renderProduct() {
     imfor_product.appendChild(span_gender)
 
 
-    let edit = document.createElement("h4");
+    let edit = document.createElement("button");
     // img_edit.src = "../../img/edit.png"
+    edit.className = "edit"
+
     edit.textContent = "Edit"
     deleteEdit.appendChild(edit)
     edit.addEventListener("click", openDialogToEdit)
 
-    let deletes = document.createElement("h4");
+    let deletes = document.createElement("button");
     // img_delete.src = "../../img/delete.png"
+    deletes.className = "deletes"
     deletes.textContent = "Delete"
+    
     deleteEdit.appendChild(deletes)
     deletes.addEventListener("click", removeProduct)
   }
@@ -156,18 +141,9 @@ function createOrEditProduct() {
         products.push(newProduct)
     }
     else{
+      window.confirm("You need to complate all.")
 
-      if (inputName.value == ""){
-        inputName.style.boder = "red"
-      }
-      if (inputPrice.value == ""){
-        inputPrice.style.border = "red"
-      }
-      if (inputImage.value == ""){
-        inputImage.style.border = "red"
       
-
-      }
 
         
         
@@ -222,22 +198,24 @@ function openDialogToCreate() {
 
 
 function openDialogToEdit(event) {
-
+  
   // 1 - Update the diaolg button to EDIT
   document.getElementById("btnCreate").textContent = "EDIT";
 
   // 2 - Update the reference of edit
-  productToEdit = event.target.parentElement.parentElement.dataset.index;
+  productToEdit = event.target.parentElement.parentElement.parentElement.dataset.index;
 
   // 3 - update the dialog with question informatin
   let product = products[productToEdit];
   inputName.value = product.name
-  console.log(product.name)
   inputPrice.value = product.price
   inputImage.value = product.imge
   
+
   // 4  - Show the dialog
   show(formCreata);
+
+ 
 
 }
 
@@ -252,7 +230,7 @@ function onCancel() {
 // =========================================remove===========================================
 function removeProduct(event) {
   //  Get index
-  let index = event.target.parentElement.parentElement.dataset.index;
+  let index = event.target.parentElement.parentElement.parentElement.dataset.index;
 
   // Remove question
   products.splice(index, 1);
@@ -267,7 +245,7 @@ function removeProduct(event) {
 // call====================================
 
 let searchBookInput = document
-  .getElementById("search-books")
+  .getElementById("search-products")
   .querySelector("input");
   console.log(searchBookInput)
 searchBookInput.addEventListener("keyup", searchProduct);

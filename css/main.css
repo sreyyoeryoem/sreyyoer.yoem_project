@@ -7,21 +7,27 @@
 body{
     /* background-color: rgb(241, 244, 247); */
     color: white;
+    height: 100%;
     font-size: 20px;
+    background-color: rgb(82, 79, 79);
 }
+
 nav{
     display: flex;
-    background-color: rgb(12, 4, 62);
+    /* background-color: rgb(12, 4, 62); */
+    background-color:rgb(19, 18, 18);
     justify-content: space-between;
 }
 .profile{
     display: flex;
     flex: 1;
-    justify-content: space-between;
+
+   align-items: center;
+  
 }
 .profile img{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-left: 5%;
  
@@ -38,25 +44,50 @@ nav{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    
 
     
 }
-select{
-    background-color: rgb(12, 4, 62);
-    border-radius: 10px;
-    margin-left: 5%;
+#search-products,#search-prodcuts{
+    
+    display: flex;
+    margin: 0;
+    flex: 1;
+    padding: 10px;
+
+}
+#search-products i,#search-prodcuts i{
+    background-color: rgba(255, 166, 0, 0.637);
+    margin-left: -34px;
+    border-radius: 0 5px 5px 0;
+    padding: 5px;
+    
+}
+#search-products input,#search-prodcuts input{
     border: none;
-    color: white;
-    font-size: 20px;
+    background-color:rgba(255, 255, 255, 0.95);
+}
+.display_product h1{
+    margin: 2%;
+}
+select{
+    border-radius:5px;
+
+    border: none;
+    padding: 7px;
+    color:black;
+    font-size: 15px;
 }
 li:hover{
-    background-color: orange;
+  background-color: var(orange);
+
+  
     margin: 0;
    
 }
-select:hover{
-    background-color: orange;
-}
+  /* background-color: var(--main-color-light); */
+
+
 .card:hover{
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
@@ -77,8 +108,8 @@ li{
 }
 main{
    
-    /* background-image: url("../img/bg_man.jpg"); */
-    /* height: 70vh; */
+    background-image: url("../img/whach.jpg");
+    height: 80vh;
    
 
 }
@@ -103,16 +134,11 @@ main{
     padding: 10px;
     border-radius: 0px 10px 10px 0px;
 }
-.search input{
-    padding: 10px;
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    color:black;
+.display_product h1{
+    color: white;
 }
 .display_product{
     color: black;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,7 +149,8 @@ footer{
     display: flex;
     color: black;
     margin: 0;
-    background-color: rgb(12, 4, 62);
+    background-color:rgb(19, 18, 18);
+    
     /* margin-top: 5%; */
     padding: 30px;
     font-size: 15px;
@@ -137,6 +164,10 @@ footer h3{
     flex: 1;
    
 
+}
+.imfor_prodcut{
+    text-align: center;
+    padding: 30px;
 }
 .footer-center{
     display: flex;
@@ -160,87 +191,99 @@ footer h3{
     border-radius: 50%;
 }
 
-/* =======================create product ================================================= */
+/* =======================create product on seller ================================================= */
+
+
 a{
     text-decoration-line: none;
     color: whitesmoke;
 
 
 }
-.create{
-    display: flex;
-    justify-content: center;
-  
-
+.all_product h2{
+    text-align: center;
+    color: white;
+    margin-top: 20px;
 }
-form{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    color: black;
-    background-color: aquamarine;
-    padding: 20px;
-    margin: 5%;
-    border-radius: 5px;
-    
 
-
+.div_create h2{
+    text-align: center;
+    margin: 20px;
 }
+
 
 dialog{
-    width: 50%;
-    margin: 10% 0 10% 25%;
-    padding: 30px;
-    height: 70%;
+    width: 55%;
+    margin: 5% 0 10% 20%;
+    padding: 20px;
+    height: 80%;
+    background-color: rgb(219, 208, 229);
+    border: 10px;
+
 }
 input{
     padding: 10px;
-    width: 90%;
+    width: 97%;
+    border-radius: 5px;
 
 }
-.name,.price{
-    margin: 10px;
+.name,.price,.image_product{
+    margin: 20px;
 }
 
-.delete_edit{
-    background-color: aqua;
-}
-/* .delete_edit h4{
+.delete_edit h4{
    margin: 10px;
    padding: 6px;
    border-radius: 10px;
-   background-color: orange;
+   
 
-} */
+}
 .cardContainer{
     display: flex;
     justify-content: space-between;
-    background-color: beige;
     width: 100%;
 }
 .display_product .card{
-    display: flex;
-    justify-content: space-between;
     width: 70%;
     margin: 10px;
-    padding: 10px;
     background-color: rgba(234, 227, 235, 0.733);
 }
 .imfor_prodcut{
     display: flex;
     justify-content: space-between;
     flex: 2;
+   
 }
 .imfor_product img{
     width: 40px;
 }
 .delete_edit{
     display: flex;
+    flex-direction: column;
     width: 20px;
     height: 60px;
-    flex: 1;
-    justify-content: flex-end;
+    flex: 0.3;
+    justify-content: center;
+    align-items: center;
+   
+}
+.edit ,.deletes {
+    width: 70px;
+    height: 30px;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+   
+
+}
+.edit{
+    background-color: green;
+    margin: 5%;
+}
+.deletes{
+    background-color: red;
+    
 }
 #gender{
     width: 100px;
@@ -257,11 +300,12 @@ input{
     cursor: pointer;
 }
 #btnCreate,#cancel{
-    padding: 8px;
+    padding: 10px;
     border: none;
-    width: 90px;
+    width: 100px;
     border-radius: 5px;
-    margin:50px;
+    margin-top:30px;
+    color: white;
     
 }
 #btnCreate{
@@ -269,12 +313,12 @@ input{
     cursor: pointer;
 }
 #cancel{
-    background-color: orange;
+    background-color:red;
     cursor: pointer;
 }
-/* ====================================================customer============================== */
+/* =========================================customer============================== */
 .all_cards .card{
-    background-color: blue;
+    background-color: rgb(240, 240, 245);
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -299,7 +343,7 @@ input{
 
 }
 .all_cards{
-    background-color: aqua;
+  
     width: 1250px;
 
 }
@@ -316,3 +360,12 @@ input{
 
 }
 
+/* ========================detail product================ */
+.detail_product {
+    color: black;
+    /* background-color: aqua; */
+}
+.detail_product img{
+    width: 200px;
+    height: 200px;
+}

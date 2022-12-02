@@ -7,14 +7,22 @@
     <title>customer</title>
     <link rel="stylesheet" href="../../css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <script src="customer.js" defer></script>
 
 </head>
 <body>
+
     <nav>
         <div class="profile">
-            <img src="../../img/logo.png" alt="">
+            <img src="../../img/logo.jpg" alt="">
         </div>
+         <!-- /// search Product//=========================== -->
+
+        <form action="" id="search-prodcuts">
+            <input type="text" placeholder="Search Product..." />
+            <i class="material-icons">search</i>
+           
+        </form>
         <div class="nav-right">
             <ul>
                 <li><a href="customer.html">Customer</a> </li>
@@ -23,18 +31,24 @@
         </div>
            
     </nav>
-    <main>
-        <form action="" id="search-books">
-            <input type="text" placeholder="Search Product..." />
-        </form>
-    </main>
-    <div class="display_product">
-        <h1>My products</h1>
-        <div class="all_cards"></div>
-       
-        
-        
+
+    <!-- @@display product ================== -->
+
+    <div class="container_all" style="display: block;">
+        <!-- <dialog> -->
+            <main>
+            </main>
+            <div class="display_product">
+                <h1>My products</h1>
+                <div class="all_cards"></div>
+            </div>
+        <!-- </dialog> -->
     </div>
+   
+
+    <!-- <!///-- detail producte============================ --> 
+    
+    
     <footer>
         <div class="footer-left">
              <div class="location">
@@ -58,9 +72,9 @@
                  <h3>ABOUT</h3>
                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quasi molestias quas laborum vel, ratione eligendi obcaecati Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eaque tempora in rem, labore consectetur repudiandae neque! Minus iusto quibusdam hic nesciunt quia placeat, laborum aliquid id nobis, odit quos?</p>
          </div>
-    </footer> -->
+    </footer> 
     
     
 </body>
-<script src="customer.js"></script>
+
 </html>

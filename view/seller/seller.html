@@ -12,10 +12,11 @@
 <body>
     <nav>
         <div class="profile">
-            <img src="../../img/logo.png" alt="">
+            <img src="../../img/logo.jpg" alt="">
         </div>
-        <form action="" id="search-books">
+        <form action="" id="search-products">
             <input type="text" placeholder="Search Product..." />
+            <i class="material-icons">search</i>
         </form>
         <div class="nav-right">
             <ul>
@@ -28,7 +29,7 @@
     
     
     <div class="create" style ="display: none">
-        
+        <div class="div_create"></div>
         <dialog open>
             
             <h2>Create product</h2>
@@ -48,15 +49,19 @@
                 <input type="text" id="image_product">
                
             </div>
-            <label for="">Gender</label>
-            <select name="" id="gender">
-                
-                <option value="men">Man</option>
-                <option value="women">Women</option>
-            </select>
+            <div class="image_product">
+                <label for="">Gender</label>
+                <select name="" id="gender">
+                    
+                    <option value="men">Man</option>
+                    <option value="women">Women</option>
+                </select>
+            </div>
+            
             <div class="btn_create">
+                
+                <button id="cancel" onclick="onCancel()">CANCEL</button>
                 <button id="btnCreate"onclick = "createOrEditProduct()">Create</button>
-                <button id="cancel" onclick="onCancel()">Cancel</button>
             </div>
             
 
