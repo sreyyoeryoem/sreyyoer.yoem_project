@@ -1,7 +1,7 @@
 
 let containProduct = document.querySelector(".display_product");
 let ditail_product = document.querySelector(".detail_product")
-console.log(ditail_product)
+// console.log(ditail_product)
 // console.log(containProduct)
 
 
@@ -14,12 +14,14 @@ searchBookInput.addEventListener("keyup", searchProduct);
 
 // ///display product////================================
 let productsStorage = JSON.parse(localStorage.getItem('products'));
+// console.log(productsStorage)
   // 1. Get porduct from local//=========
   function getProducionfromlocal() {
-
     let productsStorage = JSON.parse(localStorage.getItem("products"));
     if (productsStorage !== null) {
       products = productsStorage;
+      // console.log(products)
+     
     
     
     }
@@ -27,6 +29,7 @@ let productsStorage = JSON.parse(localStorage.getItem('products'));
   
 // 2. reder//=============
 function renderProducts(){
+  getProducionfromlocal()
   let displayProduct = document.querySelector(".all_cards")
   displayProduct.remove()
   let displayProducts = document.createElement("div");
@@ -37,6 +40,7 @@ function renderProducts(){
 
     for (let index in  products){
       product = products[index]
+      console.log(product)
 
         let card = document.createElement("div");
         card.className = ("card");
@@ -70,9 +74,9 @@ function renderProducts(){
         gender.textContent = "Gender: "+ product.gender 
         imformation.appendChild(gender)
 
-        let grup_bnt = document.createElement("div")
-        grup_bnt.className= ("grup_bnt");
-        card.appendChild(grup_bnt);
+        let group_bnt = document.createElement("div")
+        group_bnt.className= ("grup_bnt");
+        card.appendChild(group_bnt);
         
 
         let stars = document.createElement('div');
@@ -81,22 +85,28 @@ function renderProducts(){
         i.className = 'fas fa-star';
         stars.appendChild(i);
         card.appendChild(stars)
+       
+
+        let a_buy = document.createElement('a');
+        a_buy.href = 'ditail_buy/buy.html';
         let bntBuy = document.createElement("button");
+        bntBuy.addEventListener("click",datainlocalBuy)
+        group_bnt.appendChild(a_buy)
 
         bntBuy.className = "btn_buy"
         bntBuy.textContent = "Buy now"
-        grup_bnt.appendChild(bntBuy)
+        a_buy.appendChild(bntBuy)
         // grup_bnt.addEventListener("click",openDailogDetail)
 
-        let a = document.createElement('a');
-        a.href = 'ditail_buy/ditail_buy.html';
+        let a_ditail = document.createElement('a');
+        a_ditail.href = 'ditail_buy/ditail.html';
         let bntDetail = document.createElement("button");
-        grup_bnt.appendChild(a)
+        group_bnt.appendChild( a_ditail)
 
         bntDetail.className = "btn_ditail"
         bntDetail.textContent = "More detail"
-        bntDetail.addEventListener("click",openDailogDetail)
-        a.appendChild(bntDetail)      
+        bntDetail.addEventListener("click",datainlocalDitail)
+        a_ditail.appendChild(bntDetail)      
     }
     console.log(containProduct);
 }
@@ -120,12 +130,8 @@ function searchProduct(){
 }
 
 
-//
 
-//get data form old local============================
-
-let product_ditail = []
-function getOldLocal(event){
+function datainlocalBuy(event){
   index = event.target.parentElement.parentElement.parentElement.dataset.index;
   let product = productsStorage[index];
 
@@ -139,12 +145,21 @@ function getOldLocal(event){
 
 }
 
-function saveProduct(){
-  localStorage.setItem("prodcut_ditail",JSON.stringify(product_ditail));
+function datainlocalDitail(event){
+  index = event.target.parentElement.parentElement.parentElement.dataset.index;
+  let product = productsStorage[index];
+
+  // push old data of card when we click on bnt_ditail to new data
+  product_ditail.push(product)
+
+  // save data to local
+  saveProduct()
+  // remove data after we ditail again
+  product_ditail = []
 
 }
 renderProducts()
 
 searchProduct()
-openDailogDetail()
+datainlocalDitail()
 // saveProduct()
