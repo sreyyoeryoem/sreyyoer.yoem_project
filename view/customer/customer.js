@@ -5,14 +5,18 @@ let ditail_product = document.querySelector(".detail_product")
 // console.log(containProduct)
 
 
-
-
 let searchBookInput = document
   .getElementById("search-prodcuts")
   .querySelector("input");
 searchBookInput.addEventListener("keyup", searchProduct);
 
 // ///display product////================================
+
+// function saveProductonlocal() {
+//   localStorage.setItem("products", JSON.stringify(products));
+
+
+// }
 let productsStorage = JSON.parse(localStorage.getItem('products'));
 // console.log(productsStorage)
   // 1. Get porduct from local//=========
@@ -40,7 +44,6 @@ function renderProducts(){
 
     for (let index in  products){
       product = products[index]
-      console.log(product)
 
         let card = document.createElement("div");
         card.className = ("card");
@@ -73,30 +76,37 @@ function renderProducts(){
         gender.setAttribute("id","gender")
         gender.textContent = "Gender: "+ product.gender 
         imformation.appendChild(gender)
-
+     
+        let stars = document.createElement('div');
+        stars.className = ('stars');
+        for ( let i = 0; i < 5; i++){
+          let i = document.createElement('i');
+          i.className = 'fa fa-star';
+          stars.appendChild(i);
+          // card.appendChild(stars)
+        }
+        let add_card = document.createElement("div");
+        add_card.className = ("add_card");
+        add_card.appendChild(stars)
+        card.appendChild(add_card)
+        let add_to_card = document.createElement('button');
+        add_to_card.addEventListener("click",clickAddTocard)
+        add_to_card.textContent = "Add to card"
+        add_card.appendChild(add_to_card);
         let group_bnt = document.createElement("div")
         group_bnt.className= ("grup_bnt");
         card.appendChild(group_bnt);
         
-
-        let stars = document.createElement('div');
-        stars.className = ('stars');
-        let i = document.createElement('i');
-        i.className = 'fas fa-star';
-        stars.appendChild(i);
-        card.appendChild(stars)
-       
-
+      
         let a_buy = document.createElement('a');
         a_buy.href = 'ditail_buy/buy.html';
         let bntBuy = document.createElement("button");
-        bntBuy.addEventListener("click",datainlocalBuy)
+        bntBuy.addEventListener("click",datainlocalDitail)
         group_bnt.appendChild(a_buy)
 
-        bntBuy.className = "btn_buy"
+        bntBuy.className = "bnt_buy"
         bntBuy.textContent = "Buy now"
         a_buy.appendChild(bntBuy)
-        // grup_bnt.addEventListener("click",openDailogDetail)
 
         let a_ditail = document.createElement('a');
         a_ditail.href = 'ditail_buy/ditail.html';
@@ -105,10 +115,10 @@ function renderProducts(){
 
         bntDetail.className = "btn_ditail"
         bntDetail.textContent = "More detail"
-        bntDetail.addEventListener("click",datainlocalDitail)
+        bntDetail.addEventListener("click", datainlocalDitail)
         a_ditail.appendChild(bntDetail)      
     }
-    console.log(containProduct);
+   
 }
 ///reseach product===================
 
@@ -131,26 +141,17 @@ function searchProduct(){
 
 
 
-function datainlocalBuy(event){
-  index = event.target.parentElement.parentElement.parentElement.dataset.index;
-  let product = productsStorage[index];
 
-  // push old data of card when we click on bnt_ditail to new data
-  product_ditail.push(product)
-
-  // save data to local
-  saveProduct()
-  // remove data after we ditail again
-  product_ditail = []
-
-}
-
+// =========================for detail==========================
+product_ditail=[]
 function datainlocalDitail(event){
   index = event.target.parentElement.parentElement.parentElement.dataset.index;
   let product = productsStorage[index];
+  console.log(product)
 
   // push old data of card when we click on bnt_ditail to new data
   product_ditail.push(product)
+  // console.log(product_ditail)
 
   // save data to local
   saveProduct()
@@ -158,8 +159,31 @@ function datainlocalDitail(event){
   product_ditail = []
 
 }
-renderProducts()
 
+function saveProduct(){
+  localStorage.setItem("product_ditail", JSON.stringify(product_ditail));
+
+}
+// =========================for add to card==============
+let product_Add = []
+function clickAddTocard(event){
+  index = event.target.parentElement.parentElement.dataset.index;
+  let productAdd = productsStorage[index];
+  console.log(productAdd)
+  product_Add.push(productAdd)
+  console.log(productAdd)
+
+  saveProductAdd()
+}
+
+function saveProductAdd(){
+  localStorage.setItem("product_Add", JSON.stringify(product_Add));
+
+}
+
+renderProducts()
 searchProduct()
 datainlocalDitail()
+clickAddTocard()
+// datainlocalBuy
 // saveProduct()

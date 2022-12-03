@@ -7,12 +7,11 @@ let inputImage = document.getElementById("image_product");
 let gender = document.getElementById("gender")
 
 let productToEdit = null
-
+let products = []
 //  LOCAL STORAGE ---------------------------------------------------------
 
 function saveProductonlocal() {
   localStorage.setItem("products", JSON.stringify(products));
-
 
 }
 
@@ -34,11 +33,8 @@ function hide(element) {
   element.style.display = "none"
 }
 
-
-
 // =============================================render products=========================
 function renderProduct() {
-
 
   let displayPorduct = document.querySelector(".display_product");
   displayPorduct.remove();
@@ -94,7 +90,6 @@ function renderProduct() {
 
 
     let edit = document.createElement("button");
-    // img_edit.src = "../../img/edit.png"
     edit.className = "edit"
 
     edit.textContent = "Edit"
@@ -102,7 +97,7 @@ function renderProduct() {
     edit.addEventListener("click", openDialogToEdit)
 
     let deletes = document.createElement("button");
-    // img_delete.src = "../../img/delete.png"
+  
     deletes.className = "deletes"
     deletes.textContent = "Delete"
     
@@ -143,10 +138,6 @@ function createOrEditProduct() {
     else{
       window.confirm("You need to complate all.")
 
-      
-
-        
-        
     }
   }
 
@@ -251,7 +242,7 @@ let searchBookInput = document
 searchBookInput.addEventListener("keyup", searchProduct);
 
 getProducionfromlocal()
-// saveProductonlocal()
+saveProductonlocal()
 
 renderProduct()
 // saveProductonlocal()
